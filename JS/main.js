@@ -1,4 +1,6 @@
-// script.js (FINAL ONE-SHOT PROPER)
+// main.js (FINAL ONE-SHOT PROPER)
+
+/* Reveal */
 const reveals = document.querySelectorAll('.reveal');
 const io = new IntersectionObserver((entries)=>{
   entries.forEach(e=>{
@@ -64,3 +66,108 @@ const cIO = new IntersectionObserver((entries)=>{
   });
 },{threshold:0.7});
 counters.forEach(c=>cIO.observe(c));
+
+
+/* =========================
+   DEMO VIDEO CONTROLS (FIXED)
+   Autoplay / Mute / Play-Pause
+   + Center Play Button Support
+========================= */
+const video = document.getElementById("demoVideo");
+const btnAutoplay = document.getElementById("toggleAutoplay");
+const btnMute = document.getElementById("toggleMute");
+const btnPlay = document.getElementById("togglePlay");
+const centerBtn = document.getElementById("centerPlayBtn");
+
+let autoplayOn = true;   // default ON
+let mutedOn = true;      // default ON
+
+if(video){
+  // enforce safe defaults for mobile autoplay
+  video.muted = true;
+  video.playsInline = true;
+  video.loop = true;
+
+  function syncUI(){
+    if(btnAutoplay) btnAutoplay.textContent = `Autoplay: ${autoplayOn ? "ON" : "OFF"}`;
+    if(btnMute) btnMute.textContent = `Mute: ${mutedOn ? "ON" : "OFF"}`;
+    if(btnPlay) btnPlay.textContent = video.paused ? "Play" : "Pause";
+
+    if(centerBtn){
+      if(video.paused){
+        centerBtn.classList.remove("is-playing");
+        centerBtn.textContent = "▶";
+      } else {
+        centerBtn.classList.add("is-playing");
+        centerBtn.textContent = "⏸";
+      }
+    }
+  }
+
+  const tryPlay = () => video.play().catch(()=>{});
+
+  // Autoplay toggle
+  if(btnAutoplay){
+    btnAutoplay.addEventListener("click", ()=>{
+      autoplayOn = !autoplayOn;
+      if(autoplayOn){
+        // autoplay only allowed when muted
+        video.muted = true;
+        mutedOn = true;
+        tryPlay();
+      }
+      syncUI();
+    });
+  }
+
+  // Mute toggle
+  if(btnMute){
+    btnMute.addEventListener("click", ()=>{
+      mutedOn = !mutedOn;
+      video.muted = mutedOn;
+      // if user unmutes, autoplay off (mobile policy safe)
+      if(!mutedOn) autoplayOn = false;
+      syncUI();
+    });
+  }
+
+  // Play/Pause toggle (chip)
+  if(btnPlay){
+    btnPlay.addEventListener("click", ()=>{
+      if(video.paused) tryPlay();
+      else video.pause();
+      autoplayOn = !video.paused;
+      syncUI();
+    });
+  }
+
+  // Center play button toggle
+  if(centerBtn){
+    centerBtn.addEventListener("click", ()=>{
+      if(video.paused) tryPlay();
+      else video.pause();
+      autoplayOn = !video.paused;
+      syncUI();
+    });
+  }
+
+  // Autoplay ON ⇒ when video visible, play
+  const vObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting && autoplayOn){
+        tryPlay();
+        syncUI();
+      }
+    });
+  },{threshold:0.35});
+
+  vObserver.observe(video);
+
+  // sync on play/pause
+  video.addEventListener("play", syncUI);
+  video.addEventListener("pause", syncUI);
+
+  // initial sync + attempt autoplay
+  syncUI();
+  if(autoplayOn) tryPlay();
+}

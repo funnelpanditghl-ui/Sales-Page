@@ -24,6 +24,7 @@
     <div class="global-shape shape-2"></div>
     <div class="global-shape shape-3"></div>
     <div class="global-grid"></div>
+
     <!-- HERO -->
     <section class="band band-dark hero">
         <div class="container">
@@ -73,22 +74,51 @@
                 </div>
             </div>
 
-            <!-- HERO VIDEO BELOW (full width heading space safe) -->
+            <!-- HERO VIDEO BELOW (dummy video + real controls) -->
             <div class="hero-video-wrap mt-24 reveal" id="demo">
                 <div class="video-shell tilt">
-                    <div class="play-btn">▶</div>
+                    <!-- Dummy video (replace later) -->
+                    <video
+                        id="demoVideo"
+                        class="demo-video"
+                        playsinline
+                        muted
+                        loop
+                        preload="metadata"
+                        poster="https://picsum.photos/1400/800?random=99"
+                    >
+                        <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                
+                    <!-- Center Play Button (back) -->
+                    <button class="play-center" id="centerPlayBtn" type="button" aria-label="Play/Pause">
+                        ▶
+                    </button>
+                
+                    <!-- Control chips (working) -->
                     <div class="video-overlay">
-                        <div class="chip">Autoplay • Mute • Loop</div>
-                        <div class="chip">Replace with your real demo embed</div>
+                        <button class="chip-btn" id="toggleAutoplay" type="button">Autoplay: ON</button>
+                        <button class="chip-btn" id="toggleMute" type="button">Mute: ON</button>
+                        <button class="chip-btn" id="togglePlay" type="button">Pause</button>
+                    </div>
+                </div>
+                
+
+                    <!-- Control chips (working) -->
+                    <div class="video-overlay">
+                        <button class="chip-btn" id="toggleAutoplay" type="button">Autoplay: ON</button>
+                        <button class="chip-btn" id="toggleMute" type="button">Mute: ON</button>
+                        <button class="chip-btn" id="togglePlay" type="button">Pause</button>
                     </div>
                 </div>
 
                 <!-- Random demo images (replace later) -->
                 <div class="hero-media-grid curve-strip mt-12">
-                    <img class="hero-media curve-card" src="https://picsum.photos/800/600?random=1" alt="">
-                    <img class="hero-media curve-card" src="https://picsum.photos/800/600?random=2" alt="">
-                    <img class="hero-media curve-card" src="https://picsum.photos/800/600?random=3" alt="">
-                    <img class="hero-media curve-card" src="https://picsum.photos/800/600?random=4" alt="">
+                    <img loading="lazy" class="hero-media curve-card" src="https://picsum.photos/800/600?random=1" alt="">
+                    <img loading="lazy" class="hero-media curve-card" src="https://picsum.photos/800/600?random=2" alt="">
+                    <img loading="lazy" class="hero-media curve-card" src="https://picsum.photos/800/600?random=3" alt="">
+                    <img loading="lazy" class="hero-media curve-card" src="https://picsum.photos/800/600?random=4" alt="">
                 </div>
             </div>
         </div>
@@ -146,7 +176,7 @@
             </div>
 
             <div class="split-media card">
-                <img src="https://picsum.photos/1200/900?random=11" alt="">
+                <img loading="lazy" src="https://picsum.photos/1200/900?random=11" alt="">
             </div>
         </div>
 
@@ -167,7 +197,7 @@
             <!-- 1 -->
             <div class="feature-row card reveal">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=21" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=21" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">1. Complete AI Video Production</div>
@@ -184,7 +214,7 @@
             <!-- 2 -->
             <div class="feature-row card reveal reverse">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=22" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=22" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">2. AI Image Creation Studio</div>
@@ -199,7 +229,7 @@
             <!-- 3 -->
             <div class="feature-row card reveal">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=23" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=23" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">3. TikTok Viral Tools</div>
@@ -216,7 +246,7 @@
             <!-- 4 -->
             <div class="feature-row card reveal reverse">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=24" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=24" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">4. Remix & Re-Publish Engine</div>
@@ -233,7 +263,7 @@
             <!-- 5 -->
             <div class="feature-row card reveal">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=25" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=25" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">5. Competitor Spy Tools</div>
@@ -249,7 +279,7 @@
             <!-- 6 -->
             <div class="feature-row card reveal reverse">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=26" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=26" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">6. Scripts + Channel Builder</div>
@@ -265,7 +295,7 @@
             <!-- 7 -->
             <div class="feature-row card reveal">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=27" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=27" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">7. Pro Timeline Editor</div>
@@ -280,7 +310,7 @@
             <!-- 8 -->
             <div class="feature-row card reveal reverse">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=28" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=28" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">8. Analytics Dashboard</div>
@@ -296,7 +326,7 @@
             <!-- 9 -->
             <div class="feature-row card reveal">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=29" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=29" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">9. Scheduling & Automation</div>
@@ -312,7 +342,7 @@
             <!-- 10 -->
             <div class="feature-row card reveal reverse">
                 <div class="feature-media">
-                    <img src="https://picsum.photos/1200/900?random=30" alt="">
+                    <img loading="lazy" src="https://picsum.photos/1200/900?random=30" alt="">
                 </div>
                 <div class="feature-content">
                     <div class="feature-kicker">10. TikTok Mastery Training</div>
@@ -343,17 +373,17 @@
 
         <div class="container cards-3 mt-18 reveal">
             <div class="card pad">
-                <img class="mini-img" src="https://picsum.photos/1200/900?random=41" alt="">
+                <img loading="lazy" class="mini-img" src="https://picsum.photos/1200/900?random=41" alt="">
                 <h3 class="dark mt-10">Overnight Virality</h3>
                 <p class="dark small mt-8">One winner video can change your business.</p>
             </div>
             <div class="card pad">
-                <img class="mini-img" src="https://picsum.photos/1200/900?random=42" alt="">
+                <img loading="lazy" class="mini-img" src="https://picsum.photos/1200/900?random=42" alt="">
                 <h3 class="dark mt-10">Free Organic Reach</h3>
                 <p class="dark small mt-8">More reach than all platforms combined.</p>
             </div>
             <div class="card pad">
-                <img class="mini-img" src="https://picsum.photos/1200/900?random=43" alt="">
+                <img loading="lazy" class="mini-img" src="https://picsum.photos/1200/900?random=43" alt="">
                 <h3 class="dark mt-10">Cheapest Traffic</h3>
                 <p class="dark small mt-8">0 → 1,000,000 visibility even with no followers.</p>
             </div>
@@ -379,7 +409,7 @@
                     <li><span class="dot"></span>Expensive outsourcing</li>
                     <li><span class="dot"></span>Slow followers</li>
                 </ul>
-                <img class="compare-img mt-12" src="https://picsum.photos/1200/900?random=51" alt="">
+                <img loading="lazy" class="compare-img mt-12" src="https://picsum.photos/1200/900?random=51" alt="">
             </div>
 
             <div class="card pad compare-col highlight">
@@ -390,7 +420,7 @@
                     <li><span class="dot"></span>Auto scripts + voices + remix</li>
                     <li><span class="dot"></span>Bulk schedule autopilot</li>
                 </ul>
-                <img class="compare-img mt-12" src="https://picsum.photos/1200/900?random=52" alt="">
+                <img loading="lazy" class="compare-img mt-12" src="https://picsum.photos/1200/900?random=52" alt="">
             </div>
         </div>
 
@@ -476,7 +506,7 @@
             </div>
 
             <div class="card pad price-side">
-                <img class="price-img" src="https://picsum.photos/1200/900?random=61" alt="">
+                <img loading="lazy" class="price-img" src="https://picsum.photos/1200/900?random=61" alt="">
                 <h3 class="dark mt-12">This Deal Disappears Forever</h3>
                 <p class="dark small mt-8">
                     Lifetime access + all pro upgrades only during launch week.
@@ -495,28 +525,25 @@
         </div>
 
         <div class="container faq mt-16">
+            <!-- faq cards same -->
             <div class="card">
                 <button class="faq-btn">Do I need to show my face on camera? <span>+</span></button>
                 <div class="faq-panel dark">
                     Nope. TokPrimeAi was built exactly for people who don’t want to be on camera. You can create full faceless viral TikTok videos using AI scripts, AI voices, AI visuals, and even remixed viral content — without recording a single clip.
                 </div>
             </div>
-
             <div class="card">
                 <button class="faq-btn">Will this work even if I have zero followers? <span>+</span></button>
                 <div class="faq-panel dark">
                     YES. TokPrimeAi finds hot trends, viral topics, and competitor-winning videos — so you’re posting what TikTok already wants to push. This gives brand-new accounts unfair viral leverage from day one.
-
                 </div>
             </div>
-
             <div class="card">
                 <button class="faq-btn"> Can I reuse viral videos legally? <span>+</span></button>
                 <div class="faq-panel dark">
                     Yes — TokPrimeAi helps you ethically remix, repurpose, and re-publish trending videos from hashtags, keywords, niches, or competitors. You’re posting what’s already proven to go viral to a completely new audience.
                 </div>
             </div>
-
             <div class="card">
                 <button class="faq-btn">How does TokPrimeAi create videos automatically? <span>+</span></button>
                 <div class="faq-panel dark">
